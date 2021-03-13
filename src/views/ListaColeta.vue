@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="d-flex flex-column align-center">
     <v-img
       class="rec-img"
       lazy-src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
@@ -17,27 +17,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="pontos of PostosColeta" :key="pontos.id" height="300px">
-            <td>
-              <img :src="pontos.imagem" :alt="pontos.nome" height="100px" width="150px">
+          <tr v-for="pontos in PostosColeta" :key="pontos.id" min-height="300px">
+            <td width="150px">
+              <img :src="pontos.imagem" :alt="pontos.nome" height="100px" width="150px" class="mt-3 mb-1">
               <br>
-              <span class="pl-2">{{ pontos.nome }}</span>
+              <p class="text-center">{{ pontos.nome }}</p>
             </td>
             <td>
-              <p>{{ pontos.endereco }}</p>
-              <p>{{ pontos.categorias }}</p>
+              {{ pontos.endereco }}
+              <ul>
+                <li v-for="categoria in pontos.categorias" :key="categoria" class="text-grey darken-1"> {{ categoria }}</li>
+              </ul>
             </td>
           </tr>
         </tbody>
-        <tbody></tbody>
       </template>
     </v-simple-table>
   </v-container>
 </template>
+
 <style scoped>
 .rec-img {
   border-radius: 8px;
-  margin-left: 113px;
 }
 </style>
 
