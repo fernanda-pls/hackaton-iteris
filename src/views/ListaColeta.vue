@@ -10,12 +10,10 @@
     <h2 class="text-h5 text-center pt-3 mb-3 mt-5">Lista de Postos de CCS</h2>
 
     <div>
-      <v-select
-          :items="items"
-          label="Solo field"
-          solo
-          @click="filtrarCategoria"
-      ></v-select>
+      
+      <v-btn color="blue lighten-1" @click="filtrarCategoria" icon>
+        <v-icon >mdi-magnify</v-icon>
+      </v-btn>
     </div>
 
     <v-simple-table dark fixed-header height="500px">
