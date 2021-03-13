@@ -9,38 +9,42 @@
     ></v-img>
     <h2 class="text-h5 text-center pt-3 mb-3 mt-5">Lista de Postos de CCS</h2>
 
-    <div>
-      
-      <v-btn color="blue lighten-1" @click="filtrarCategoria" icon>
-        <v-icon >mdi-magnify</v-icon>
-      </v-btn>
-    </div>
-
-    <v-simple-table dark fixed-header height="500px">
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left">Centro de Coleta</th>
-            <th colspan="4" class="text-center">Endereço/ Material</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="pontos in PostosColeta" :key="pontos.id" min-height="300px">
-            <td width="150px">
-              <img :src="pontos.imagem" :alt="pontos.nome" height="100px" width="150px" class="mt-3 mb-1">
-              <br>
-              <p class="text-center">{{ pontos.nome }}</p>
-            </td>
-            <td>
-              {{ pontos.endereco }}
-              <ul>
-                <li v-for="categoria in pontos.categorias" :key="categoria" class="text-grey darken-1"> {{ categoria }}</li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
+    <v-card
+      v-for="pc in PostosColeta"
+      :key="pc.id"
+      :loading="loading"
+      class="mx-auto my-9"
+      max-width="374"
+      dark
+    >
+      <template slot="progress">
+        <v-progress-linear
+          color="green-lighten-1"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
       </template>
-    </v-simple-table>
+
+      <v-img height="222" :src="pc.imagem"></v-img>
+
+      <v-card-title class="pt-5 pb-2">{{ pc.nome }}</v-card-title>
+
+      <v-card-text class="my-0 px-4" text-center>
+        <div>
+          <span class="font-weight-bold mr-3">Endereço:</span>
+          {{ pc.endereco }}
+        </div>
+        <div>
+          <span class="font-weight-bold">CCS:</span> {{ pc.nome }}
+        </div>
+        <div><span class="font-weight-bold">Material Coletado:</span> {{ pc.categorias }}</div>
+      </v-card-text>
+
+      <v-divider class="mx-4"></v-divider>
+
+    </v-card>
+
+   
   </v-container>
 </template>
 
@@ -56,23 +60,25 @@ export default {
   data() {
     return {
       PostosColeta: [],
-      Categorias: []
+      Categorias: [],
     };
   },
   methods: {
     filtrarCategoria() {
-      this.PostosColeta.filter( postos => {
-        this.Categorias = postos.categorias
-        console.log(this.Categorias)
-      })
-    }
+      this.PostosColeta.filter((postos) => {
+        postos.categorias.foreach((categoria) => {
+          this.Categorias.push(categoria);
+        });
+        console.log(this.Categorias);
+      });
+    },
   },
   created() {
     fetch("https://it3kjy-default-rtdb.firebaseio.com/coletaSeletiva.json")
-      .then(resposta => resposta.json())
-      .then(json => {
+      .then((resposta) => resposta.json())
+      .then((json) => {
         this.PostosColeta = json;
       });
-  }
+  },
 };
 </script>

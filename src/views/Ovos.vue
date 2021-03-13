@@ -1,28 +1,81 @@
 <template>
-  <v-container>
-    <h2 class="text-h2 text-center mb-3 mt-6">Ovos de Páscoa</h2>
-    <v-img
-      class="inicio-imagem mb-4"
-      src="https://i.pinimg.com/564x/2c/9a/79/2c9a79625a03c8e87449e56b9090259c.jpg"
-      alt="Imagem Ovo de Páscoa"
-    ></v-img>
+  <v-container class="container">
+    <h2 class="text-h5 text-center mb-3 mt-6">Ovos de Páscoa</h2>
 
-    <p>Com a proximidade da Páscoa, a Conecta liga o consumidor a produtores de ovos de chocolate em diversos pontos do país.</p>
-    <p>Esta é uma iniciativa que busca o desenvolvimento econômico sustentável, apoiando pequenos produtores ao mercado consumidor.</p>
-          <v-btn color="blue lighten-1" @click="filtrarCategoria" icon>
-        <v-icon >mdi-magnify</v-icon>
-      </v-btn>
+    <p>Escolha os produtores de ovos de Páscoa caseiros de acordo com a sua cidade:</p>
+
+    <v-row align="center" justify="space-around" class="mt-5">
+      <v-btn class="ma-2" primary>AC - Rio Branco</v-btn>
+      <v-btn class="ma-2" primary>AM - Manaus</v-btn>
+      <v-btn class="ma-2" primary>AP - Macapá</v-btn>
+    </v-row>
+
+    <v-card
+      v-for="ovo in OvosPascoa" :key="ovo.nome"
+      :loading="loading"
+      class="mx-auto my-12"
+      max-width="374"
+      dark
+    >
+      <template slot="progress">
+        <v-progress-linear
+          color="deep-purple"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
+
+      <v-img
+        height="250"
+        :src="ovo.imagem"
+      ></v-img>
+
+      <v-card-title class="pt-5 pb-2">{{ ovo.nome }}</v-card-title>
+
+      <v-card-text class="my-0 px-4">
+        <div><span class="font-weight-bold">Endereço:</span> {{ ovo.local.endereco }}</div>
+        <div><span class="font-weight-bold">Local:</span> {{ ovo.local.nome }}</div>
+        <div><span class="font-weight-bold">Sabor:</span> {{ ovo.sabor }}</div>
+      </v-card-text>
+
+      <v-divider class="mx-4"></v-divider>
+
+      <v-card-actions>
+        <v-card-text class="text-right preço text--white">
+          R$ {{ ovo.preco }}
+        </v-card-text>
+      </v-card-actions>
+    </v-card>
+
   </v-container>
 </template>
+
 <script>
 export default {
-  name: "Ovos"
+  name: "Ovos",
+  data() {
+    return {
+      OvosPascoa: []
+    }
+  },
+  created() {
+    fetch("https://it3kjy-default-rtdb.firebaseio.com/ovosPascoa.json")
+      .then(resposta => resposta.json())
+      .then(json => {
+        this.OvosPascoa = json;
+      });
+  }
 };
 </script>
 
 <style scoped>
-.inicio-imagem {
-  border-radius: 5px;
+  .preço {
+    font-size: 1.3rem;
+  }
+  .comprar-btn {
+    margin: 0 0.5rem;
+  }
+.container a {
+  text-decoration: none;
 }
 </style>
-
