@@ -5,11 +5,12 @@
     <p>Escolha os produtores de ovos de Páscoa caseiros de acordo com a sua cidade:</p>
 
     <v-row align="center" justify="space-around" class="mt-5">
-      <v-btn class="ma-2" primary>AC - Rio Branco</v-btn>
-      <v-btn class="ma-2" primary>AM - Manaus</v-btn>
-      <v-btn class="ma-2" primary>AP - Macapá</v-btn>
+      <v-btn @click="mudaFiltro" class="ma-2" primary>AC - Rio Branco</v-btn>
+      <v-btn @click="mudaFiltro" class="ma-2" primary>AM - Manaus</v-btn>
+      <v-btn @click="mudaFiltro" class="ma-2" primary>AP - Macapá</v-btn>
     </v-row>
 
+    {{ }}
     <v-card
       v-for="ovo in OvosPascoa" :key="ovo.nome"
       :loading="loading"
@@ -53,9 +54,27 @@
 <script>
 export default {
   name: "Ovos",
+  filtro: "",
+  Ovosfiltrados: [],
   data() {
     return {
       OvosPascoa: []
+    }
+  },
+  methods: {
+    mudaFiltro(e) {
+      let botao = e.target.textContent
+      if(botao == "AC - Rio Branco"){
+        this.filtro = "69915894"
+      } else if(botao == "AM - Manaus"){
+        this.filtro = "69098033"
+      } else if(botao == "AP - Macapá"){
+        this.filtro = "68906477"
+      }
+
+      this.Ovosfiltrados = this.OvosPascoa.filter( ovos => {
+        return ovos.local.cep == this.filtro
+      })
     }
   },
   created() {
