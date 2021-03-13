@@ -5,37 +5,30 @@
       lazy-src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
       max-height="80"
       max-width="105"
-      
       src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
     ></v-img>
     <h2 class="text-h5 text-center pt-3 mb-3 mt-5">Lista de Postos de CCS</h2>
-    <v-simple-table dark
-      fixed-header
-      height="300px">
+    <v-simple-table dark fixed-header height="300px">
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-left">Endereço</th>
-            <th colspan="4" class="text-center">CCS</th>
-            <th colspan="2" class="text-right">Material</th>
+            <th class="text-left">Centro de Coleta</th>
+            <th colspan="4" class="text-center">Endereço/ Material</th>
           </tr>
         </thead>
-            <tbody>
-              <tr v-for="pontos of PostosColeta" :key="pontos.id" height="300px">
-                <td>
-<<<<<<< HEAD
-                  <v-avatar size="24">
-                    <img :src="pontos.imagem" :alt="pontos.nome">
-                  </v-avatar>
-=======
-                  <img :src="pontos.imagem" :alt="pontos.nome" height="100px" width="150px"/><br>
->>>>>>> 511d7a4dc23c0169b23af589680d1fd8e4d7c749
-                  <span class="pl-2">{{ pontos.nome }}</span>
-                </td>
-                <td>{{ pontos.endereco }}</td>
-                <td>{{ pontos.categorias }}</td>
-              </tr>
-            </tbody>
+        <tbody>
+          <tr v-for="pontos of PostosColeta" :key="pontos.id" height="300px">
+            <td>
+              <img :src="pontos.imagem" :alt="pontos.nome" height="100px" width="150px">
+              <br>
+              <span class="pl-2">{{ pontos.nome }}</span>
+            </td>
+            <td>
+              <p>{{ pontos.endereco }}</p>
+              <p>{{ pontos.categorias }}</p>
+            </td>
+          </tr>
+        </tbody>
         <tbody></tbody>
       </template>
     </v-simple-table>
@@ -49,13 +42,7 @@
 </style>
 
 <script>
-
-
-
-
 export default {
-
-
   name: "PostosColeta",
   data() {
     return { PostosColeta: [] };
