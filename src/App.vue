@@ -1,8 +1,27 @@
 <template>
-  <div>
-    <router-view/>
-  </div>
+  <v-app :style="myStyle">
+    <AppTopBar/>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
+ 
+<script>
+import AppTopBar from "./components/shared/AppTopBar";
 
-<style scooped>
+export default {
+  name: "App",
+  data() {
+    return {
+      myStyle: { backgroundColor: "#EEE" }
+    };
+  },
+  components: {
+    AppTopBar
+  }
+};
+</script>
+ 
+<style scoped>
 </style>
