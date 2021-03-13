@@ -1,5 +1,12 @@
 <template>
   <v-container class="container">
+     <v-img
+      lazy-src="https://cdn.iconscout.com/icon/premium/png-256-thumb/easter-egg-2295792-1935442.png"
+      max-height="80"
+      max-width="105"
+      class="rec-img"
+      src="https://cdn.iconscout.com/icon/premium/png-256-thumb/easter-egg-2295792-1935442.png"
+    ></v-img>
     <h2 class="text-h5 text-center mb-3 mt-6">Ovos de Páscoa</h2>
 
     <p>Escolha os produtores de ovos de Páscoa caseiros de acordo com a sua cidade:</p>
@@ -90,6 +97,9 @@ export default {
 <style scoped>
   .preço {
     font-size: 1.3rem;
+  }
+  .rec-img{
+    margin-left: 120px;
   }
   .comprar-btn {
     margin: 0 0.5rem;
