@@ -1,6 +1,6 @@
 <template>
   <div class="app-top-bar">
-    <v-app-bar color="#26A69A" app>
+    <v-app-bar color="#a5c9fd" app>
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title>CONECTA</v-toolbar-title>
     </v-app-bar>
@@ -10,7 +10,7 @@
         <v-list-item-group
           v-model="group"
           class="background-color: #ccc"
-          active-class="green--text text--lighten-2"
+          active-class="blue--text text--lighten-1"
         >
           <router-link to="/">
             <v-list-item>
