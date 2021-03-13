@@ -41,16 +41,9 @@
       <v-divider class="mx-4"></v-divider>
 
       <v-card-actions>
-        <v-card-text class="preço text--white">
+        <v-card-text class="text-right preço text--white">
           R$ {{ ovo.preco }}
         </v-card-text>
-        <v-btn
-          color="#a5c9fd"
-          text
-          class="comprar-btn font-weight-bold"
-        >
-          Comprar
-        </v-btn>
       </v-card-actions>
     </v-card>
 
