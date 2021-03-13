@@ -37,7 +37,14 @@
         <div>
           <span class="font-weight-bold">CCS:</span> {{ pc.nome }}
         </div>
-        <div><span class="font-weight-bold">Material Coletado:</span> {{ pc.categorias }}</div>
+        <div>
+          <span class="font-weight-bold">Material Coletado:</span> 
+          <ul>
+            <li v-for="categoria in pc.categorias" :key="categoria">
+              {{ categoria }}
+            </li>
+          </ul>
+        </div>
       </v-card-text>
 
       <v-divider class="mx-4"></v-divider>
