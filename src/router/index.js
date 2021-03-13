@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import PostosColeta from '../views/PostosColeta.vue'
+import PostosColeta from '../views/ListaColeta.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/PostosColeta',
+    path: '/ListaColeta',
     name: 'Coleta',
-    component: PostosColeta
+    component: ListaColeta
   }
 ]
 
