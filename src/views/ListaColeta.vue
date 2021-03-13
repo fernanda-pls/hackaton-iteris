@@ -48,7 +48,7 @@
   </v-container>
 </template>
 
-<style scoped>
+<style scoped>""
 .rec-img {
   border-radius: 8px;
 }
