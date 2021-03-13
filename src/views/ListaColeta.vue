@@ -8,7 +8,17 @@
       src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
     ></v-img>
     <h2 class="text-h5 text-center pt-3 mb-3 mt-5">Lista de Postos de CCS</h2>
-    <v-simple-table dark fixed-header height="300px">
+
+    <div>
+      <v-select
+          :items="items"
+          label="Solo field"
+          solo
+          @click="filtrarCategoria"
+      ></v-select>
+    </div>
+
+    <v-simple-table dark fixed-header height="500px">
       <template v-slot:default>
         <thead>
           <tr>
@@ -46,7 +56,18 @@
 export default {
   name: "PostosColeta",
   data() {
-    return { PostosColeta: [] };
+    return {
+      PostosColeta: [],
+      Categorias: []
+    };
+  },
+  methods: {
+    filtrarCategoria() {
+      this.PostosColeta.filter( postos => {
+        this.Categorias = postos.categorias
+        console.log(this.Categorias)
+      })
+    }
   },
   created() {
     fetch("https://it3kjy-default-rtdb.firebaseio.com/coletaSeletiva.json")

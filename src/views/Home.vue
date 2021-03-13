@@ -1,14 +1,16 @@
 <template>
   <v-container class="home-container d-flex flex-column align-center">
-    <v-img
-      class="inicio-imagem mb-4"
-      lazy-src="https://cdn2.iconfinder.com/data/icons/gunther/128/connections-512.png"
-      max-height="77"
-      max-width="105"
-      src="https://cdn2.iconfinder.com/data/icons/gunther/128/connections-512.png"
-      alt="Imagem Conecta"
-    ></v-img>
-    <h2 class="text-h2 text-center mb-3 mt-2">Conecta</h2>
+    <h2 class="text-h2 text-center mb-5 mt-2 d-flex align-center">
+      <v-img
+        class="inicio-imagem"
+        lazy-src="https://cdn2.iconfinder.com/data/icons/gunther/128/connections-512.png"
+        max-height="77"
+        max-width="105"
+        src="https://cdn2.iconfinder.com/data/icons/gunther/128/connections-512.png"
+        alt="Imagem Conecta"
+      ></v-img>
+      Conecta
+    </h2>
     <p class="text">
       A Conecta é uma plataforma que aproxima os cidadãos dos postos de coleta
       espalhados pelo país. Nossa missão é tornar a reciclagem uma realidade, em
