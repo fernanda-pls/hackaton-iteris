@@ -7,7 +7,6 @@
   </v-app>
 </template>
 
-
 <script>
 import AppTopBar from "./components/shared/AppTopBar";
 
@@ -24,5 +23,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
+
 </style>
