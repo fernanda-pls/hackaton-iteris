@@ -13,6 +13,20 @@
             <th colspan="1" class="text-center">CCS</th>
             <th colspan="2" class="text-left">Material</th>
             <th class="text-right">CEP</th>
+
+            <tbody>
+              <tr v-for="pontos of PostosColeta" :key="pontos.id">
+                <td>
+                  <v-avatar size="24">
+                    <img :src="pontos.imagem" :alt="pontos.nome" />
+                  </v-avatar>
+                  <span class="pl-2">{{ pontos.nome }}</span>
+                </td>
+                <td>{{ pontos.cep }}</td>
+                <td>{{ pontos.endereco }}</td>
+                <td>{{ pontos.categorias }}</td>
+              </tr>
+            </tbody>
           </tr>
         </thead>
         <tbody></tbody>
@@ -25,3 +39,19 @@ rec-img {
   border-radius: 8px;
 }
 </style>
+
+<script>
+export default {
+  name: "PostosColeta",
+  data() {
+    return { PostosColeta: [] };
+  },
+  created() {
+    fetch("https://it3kjy-default-rtdb.firebaseio.com/coletaSeletiva.json")
+      .then((resposta) => resposta.json())
+      .then((json) => {
+        this.PostosColeta = json;
+      });
+  },
+};
+</script>
