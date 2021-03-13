@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'ListaColeta'
-}
+  name: "ListaColeta"
+};
 </script>
 
 <style scoped>
