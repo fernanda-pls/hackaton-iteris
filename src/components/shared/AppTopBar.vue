@@ -30,7 +30,7 @@
             </v-list-item>
 
           </router-link>
-           <router-link to="/ListaColeta">
+           <router-link to="/Ovos">
             <v-list-item>
               <v-list-item-icon>
                 <v-icon>mdi-egg-easter</v-icon>

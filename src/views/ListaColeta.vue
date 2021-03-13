@@ -64,7 +64,9 @@ export default {
   methods: {
     filtrarCategoria() {
       this.PostosColeta.filter( postos => {
-        this.Categorias = postos.categorias
+        postos.categorias.foreach( categoria => {
+          this.Categorias.push(categoria)
+        })
         console.log(this.Categorias)
       })
     }
