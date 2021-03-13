@@ -41,7 +41,9 @@
       src="https://cdn.iconscout.com/icon/premium/png-256-thumb/easter-egg-2295792-1935442.png"
       alt="Imagem Caseirovos"
     ></v-img>
-
+    <h3 class="text-h4 text-left mb-3 mt-6 align-self-start">
+      CaseirOvos
+    </h3>
     <p class="text">
       Os pequenos negócios são responsáveis por 52% dos empregos formais diretos
       no País de acordo com o Sebrae. Boa parte desses profissionais residem
