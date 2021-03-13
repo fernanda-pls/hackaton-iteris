@@ -11,9 +11,9 @@
           <router-link to="/">
             <v-list-item>
               <v-list-item-icon>
-                <v-icon>mdi-home</v-icon>
+                <v-icon>mdi-transit-connection-variant</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Início</v-list-item-title>
+              <v-list-item-title>Conecta</v-list-item-title>
             </v-list-item>
           </router-link>
 
@@ -23,6 +23,15 @@
                 <v-icon>mdi-recycle</v-icon>
               </v-list-item-icon>
               <v-list-item-title>Postos de Coleta</v-list-item-title>
+            </v-list-item>
+
+          </router-link>
+           <router-link to="/ListaColeta">
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>mdi-egg-easter</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>CaseirOvos</v-list-item-title>
             </v-list-item>
           </router-link>
         </v-list-item-group>
