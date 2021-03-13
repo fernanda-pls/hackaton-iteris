@@ -8,31 +8,25 @@
       src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
     ></v-img>
     <h2 class="text-h5 text-center pt-3 mb-3 mt-5">Lista de Postos de CCS</h2>
-    <v-simple-table dark
-      fixed-header
-      height="300px">
+    <v-simple-table dark fixed-header height="300px">
       <template v-slot:default>
         <thead>
           <tr>
-            <th>Endereço</th>
-            <th>CCS</th>
-            <th>CEP</th>
-            <th>Material</th>
+            <th class="text-left">Centro de Coleta</th>
+            <th colspan="4" class="text-center">Endereço/ Material</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="pontos in PostosColeta" :key="pontos.id">
-            <td>
-              <v-avatar size="24">
-                <img :src="pontos.imagem" :alt="pontos.nome" />
-              </v-avatar>
-              <span class="pl-2">{{ pontos.nome }}</span>
+          <tr v-for="pontos in PostosColeta" :key="pontos.id" min-height="300px">
+            <td width="150px">
+              <img :src="pontos.imagem" :alt="pontos.nome" height="100px" width="150px" class="mt-3 mb-1">
+              <br>
+              <p class="text-center">{{ pontos.nome }}</p>
             </td>
-            <td>{{ pontos.endereco }}</td>
-            <td>{{ pontos.cep }}</td>
             <td>
+              {{ pontos.endereco }}
               <ul>
-                <li v-for="categoria in pontos.categorias" :key="categoria"> {{ categoria }}</li>
+                <li v-for="categoria in pontos.categorias" :key="categoria" class="text-grey darken-1"> {{ categoria }}</li>
               </ul>
             </td>
           </tr>
