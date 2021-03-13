@@ -1,8 +1,12 @@
 <template>
   <v-container>
     <v-img
-      class="rec-img mb-4"
-      src="https://img2.gratispng.com/20180429/hyq/kisspng-alternative-fuel-recycling-renewable-energy-5ae59c7d1eb202.7899606415249972451257.jpg"
+      class="rec-img"
+      lazy-src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
+      max-height="80"
+      max-width="105"
+      
+      src="https://img.icons8.com/bubbles/2x/recycle-sign.png"
     ></v-img>
     <h2 class="text-h5 text-center pt-3 mb-3 mt-5">Lista de Postos de CCS</h2>
     <v-simple-table dark
@@ -12,8 +16,8 @@
         <thead>
           <tr>
             <th class="text-left">Endereço</th>
-            <th colspan="1" class="text-center">CCS</th>
-            <th colspan="2" class="text-left">Material</th>
+            <th colspan="4" class="text-center">CCS</th>
+            <th colspan="2" class="text-right">Material</th>
           </tr>
         </thead>
             <tbody>
@@ -32,8 +36,9 @@
   </v-container>
 </template>
 <style scoped>
-rec-img {
+.rec-img {
   border-radius: 8px;
+  margin-left: 113px;
 }
 </style>
 
