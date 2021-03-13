@@ -85,6 +85,8 @@
         class="my-2 my-sm-5 coleta-btn"
         >CaseirOvos</v-btn
       >
+    <router-link to="/Ovos">
+      <v-btn outlined color="#26A69A" elevation="1" class="my-2 my-sm-5 coleta-btn">CaseirOvos</v-btn>
     </router-link>
   </v-container>
 </template>
