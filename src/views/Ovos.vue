@@ -1,6 +1,15 @@
 <template>
-  <v-container>
+  <v-container class="container">
     <h2 class="text-h5 text-center mb-3 mt-6">Ovos de Páscoa</h2>
+
+    <p>Escolha os produtores de ovos de Páscoa caseiros de acordo com a sua cidade:</p>
+
+    <v-row align="center" justify="space-around" class="mt-5">
+      <v-btn class="ma-2" primary>AC - Rio Branco</v-btn>
+      <v-btn class="ma-2" primary>AM - Manaus</v-btn>
+      <v-btn class="ma-2" primary>AP - Macapá</v-btn>
+    </v-row>
+
     <v-card
       v-for="ovo in OvosPascoa" :key="ovo.nome"
       :loading="loading"
@@ -36,10 +45,9 @@
           R$ {{ ovo.preco }}
         </v-card-text>
         <v-btn
-          color="deep-purple lighten-2"
+          color="#a5c9fd"
           text
-          elevation="2"
-          class="comprar-btn"
+          class="comprar-btn font-weight-bold"
         >
           Comprar
         </v-btn>
@@ -74,5 +82,8 @@ export default {
   .comprar-btn {
     margin: 0 0.5rem;
   }
+.container a {
+  text-decoration: none;
+}
 </style>
 
