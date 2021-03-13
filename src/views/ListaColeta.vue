@@ -18,7 +18,7 @@
               <tr v-for="pontos of PostosColeta" :key="pontos.id">
                 <td>
                   <v-avatar size="24">
-                    <img :src="pontos.imagem" :alt="pontos.nome" />
+                    <img :src="pontos.imagem" :alt="pontos.nome">
                   </v-avatar>
                   <span class="pl-2">{{ pontos.nome }}</span>
                 </td>
@@ -48,10 +48,10 @@ export default {
   },
   created() {
     fetch("https://it3kjy-default-rtdb.firebaseio.com/coletaSeletiva.json")
-      .then((resposta) => resposta.json())
-      .then((json) => {
+      .then(resposta => resposta.json())
+      .then(json => {
         this.PostosColeta = json;
       });
-  },
+  }
 };
 </script>
